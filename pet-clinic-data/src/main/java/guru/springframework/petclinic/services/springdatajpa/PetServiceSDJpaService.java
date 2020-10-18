@@ -35,11 +35,9 @@ public class PetServiceSDJpaService implements PetService {
 
     @Override
     public void delete(Pet object) {
-
     }
 
     @Override
     public void deleteById(Long aLong) {
-
     }
 }
