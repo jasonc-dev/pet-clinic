@@ -5,6 +5,7 @@ import guru.springframework.petclinic.model.Visit;
 import guru.springframework.petclinic.services.PetService;
 import guru.springframework.petclinic.services.VisitService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
@@ -38,9 +39,9 @@ public class VisitController {
     }
 
     @ModelAttribute("visit")
-    public Visit loadPetWithVisit(@PathVariable("petId") Long petId, Map<String, Object> model) {
+    public Visit loadPetWithVisit(@PathVariable("petId") Long petId, Model model) {
         Pet pet = petService.findById(petId);
-        model.put("pet", pet);
+        model.addAttribute("pet", pet);
         Visit visit = new Visit();
         pet.getVisits().add(visit);
         visit.setPet(pet);
